@@ -23,6 +23,7 @@ const SplashScreen = ({navigation}) => {
         source={require('../../assets/images/splashScreen.png')}
         style={styles.logo}
         resizeMode="stretch"
+        testID="splash-image"
       />
     </View>
   );

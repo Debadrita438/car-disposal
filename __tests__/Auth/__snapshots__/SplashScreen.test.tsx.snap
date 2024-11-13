@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    resizeMode="stretch"
+    source={
+      {
+        "testUri": "../../../src/assets/images/splashScreen.png",
+      }
+    }
+    style={
+      {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+    testID="splash-image"
+  />
+</View>
+`;
