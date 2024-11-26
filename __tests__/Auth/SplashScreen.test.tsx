@@ -2,6 +2,7 @@ import React from 'react';
 import {render, act} from '@testing-library/react-native';
 import SplashScreen from '../../src/screens/AuthScreens/SplashScreen';
 import renderer from 'react-test-renderer';
+import {storage} from '../../src/utils/Storage';
 
 // Mock the navigation prop
 jest.mock('@react-navigation/native', () => ({
@@ -16,9 +17,6 @@ jest.mock('../../src/utils/Storage', () => ({
     contains: jest.fn(),
   },
 }));
-
-// Import the mocked storage
-import {storage} from '../../src/utils/Storage';
 
 describe('SplashScreen', () => {
   const mockNavigation = {replace: jest.fn()};
