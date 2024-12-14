@@ -12,7 +12,8 @@
     "podinstallupdate": "cd ios && pod install --repo-update && cd ..",
     "clean": "cd android && ./gradlew clean && cd ..",
     "release": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..",
-    "test:clearCache": "jest --clearCache"
+    "test:clearCache": "jest --clearCache",
+    "clean:windows": "cd android && gradlew clean && cd .."
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.6.1",

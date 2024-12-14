@@ -30,6 +30,7 @@ const data = [
         height={height / 1.5}
         width={width}
         style={{marginTop: -30}}
+        accessibilityLabel={'FirstIntroMock'}
       />
     ),
   },
@@ -66,6 +67,7 @@ const data = [
         height={height / 1.5}
         width={width}
         style={{marginTop: -30}}
+        accessibilityLabel={'FourthIntroMock'}
       />
     ),
   },
@@ -150,8 +152,13 @@ const IntroScreen = ({navigation}) => {
             styles.arrowButton,
             currentIndex === data.length - 1 && styles.leftArrow,
           ]}
-          onPress={handleArrowPress}>
-          {currentIndex < data.length - 1 ? <RightArrow /> : <CheckIcon />}
+          onPress={handleArrowPress}
+          testID={'next'}>
+          {currentIndex < data.length - 1 ? (
+            <RightArrow accessibilityLabel={'right'} />
+          ) : (
+            <CheckIcon accessibilityLabel={'check'} />
+          )}
         </TouchableOpacity>
       </View>
     </View>
