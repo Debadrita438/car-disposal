@@ -64,6 +64,7 @@ describe('IntroScreen', () => {
 
   it('triggers handleArrowPress on press', () => {
     const mockHandleArrowPress = jest.fn();
+
     const {getByTestId} = render(
       <TouchableOpacity onPress={mockHandleArrowPress} testID="next" />,
     );
@@ -72,6 +73,18 @@ describe('IntroScreen', () => {
     fireEvent.press(nextButton);
 
     expect(mockHandleArrowPress).toHaveBeenCalled();
+  });
+
+  it('should navigate to LoginScreen when on the last index', () => {
+    const {getByTestId} = render(<IntroScreen navigation={mockNavigation} />);
+
+    // Simulate reaching the last index by pressing "next" until the last screen
+    for (let i = 0; i < 4; i++) {
+      fireEvent.press(getByTestId('next'));
+    }
+
+    // Verify navigation to LoginScreen
+    expect(mockNavigation.navigate).toHaveBeenCalledWith('LoginScreen');
   });
 });
 
