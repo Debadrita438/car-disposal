@@ -53,7 +53,7 @@ const LoginScreen = ({navigation}) => {
     if (loginRes.status === ApiStatus.success) {
       setEmail('');
       setPassword('');
-      dispatch(resetLogin());
+      // dispatch(resetLogin());
       navigation.replace('AppScreen');
     } else if (
       loginRes.status === ApiStatus.failed &&
@@ -94,88 +94,94 @@ const LoginScreen = ({navigation}) => {
     }
   };
 
+  // return (
+  //   <ImageBackground
+  //     source={require('../../assets/images/loginBackground.png')}
+  //     style={styles.imagebackground}
+  //     resizeMode="stretch">
+  //     <View style={styles.containerView}>
+  //       <View style={styles.logoView}>
+  //         <Image
+  //           source={require('../../assets/images/logo.png')}
+  //           style={styles.logoImage}
+  //         />
+  //       </View>
+  //       <Text style={{...Fonts.headerText, ...styles.mt80}}>
+  //         Hello, Welcome Back
+  //       </Text>
+  //       <KeyboardAvoidingView
+  //         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+  //         style={styles.keyboardAvoidingView}>
+  //         <ScrollView contentContainerStyle={styles.container}>
+  //           <AnimatedInput
+  //             ref={emailRef}
+  //             value={email}
+  //             onChange={setEmail}
+  //             placeholder="Email"
+  //             keyboardType="email-address"
+  //             logo={<Mail />}
+  //             onSubmitEditing={() => passwordRef.current.focus()}
+  //           />
+  //           <AnimatedInput
+  //             ref={passwordRef}
+  //             value={password}
+  //             onChange={setPassword}
+  //             placeholder="Password"
+  //             logo={
+  //               !passwordVisible ? (
+  //                 <OpenEye fill={Colors.grayTextColor} />
+  //               ) : (
+  //                 <CloseEye fill={Colors.grayTextColor} />
+  //               )
+  //             }
+  //             secureTextEntry={passwordVisible}
+  //             onPressIcon={() => setPasswordVisible(!passwordVisible)}
+  //           />
+  //           <View style={styles.checkboxView}>
+  //             <View style={styles.rememberMeView}>
+  //               <AnimatedCheckbox
+  //                 checked={isChecked}
+  //                 onChange={saveCredHandler}
+  //               />
+  //               <Text style={[Fonts.rememberText, styles.ml10]}>
+  //                 Remember me
+  //               </Text>
+  //             </View>
+  //             <Pressable
+  //               onPress={() => navigation.navigate('ResetPasswordScreen')}>
+  //               <Text style={[Fonts.rememberText, styles.redText]}>
+  //                 Forgot Password?
+  //               </Text>
+  //             </Pressable>
+  //           </View>
+  //           <ButtonComponent
+  //             text="Sign in"
+  //             buttonPressed={loginHandler}
+  //             extraStyle={{
+  //               ...styles.mt30,
+  //               opacity: loginRes.status === ApiStatus.loading ? 0.5 : 1,
+  //             }}
+  //             isDisabled={loginRes.status === ApiStatus.loading}
+  //             loading={loginRes.status === ApiStatus.loading}
+  //           />
+  //         </ScrollView>
+  //       </KeyboardAvoidingView>
+  //     </View>
+  //     <Pressable
+  //       style={styles.bottomView}
+  //       onPress={() => navigation.navigate('SignUpScreen')}>
+  //       <Text style={Fonts.bottomText}>
+  //         Don't You have any account?{' '}
+  //         <Text style={styles.redText}>Sign up</Text>
+  //       </Text>
+  //     </Pressable>
+  //   </ImageBackground>
+  // );
+
   return (
-    <ImageBackground
-      source={require('../../assets/images/loginBackground.png')}
-      style={styles.imagebackground}
-      resizeMode="stretch">
-      <View style={styles.containerView}>
-        <View style={styles.logoView}>
-          <Image
-            source={require('../../assets/images/logo.png')}
-            style={styles.logoImage}
-          />
-        </View>
-        <Text style={{...Fonts.headerText, ...styles.mt80}}>
-          Hello, Welcome Back
-        </Text>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={styles.keyboardAvoidingView}>
-          <ScrollView contentContainerStyle={styles.container}>
-            <AnimatedInput
-              ref={emailRef}
-              value={email}
-              onChange={setEmail}
-              placeholder="Email"
-              keyboardType="email-address"
-              logo={<Mail />}
-              onSubmitEditing={() => passwordRef.current.focus()}
-            />
-            <AnimatedInput
-              ref={passwordRef}
-              value={password}
-              onChange={setPassword}
-              placeholder="Password"
-              logo={
-                !passwordVisible ? (
-                  <OpenEye fill={Colors.grayTextColor} />
-                ) : (
-                  <CloseEye fill={Colors.grayTextColor} />
-                )
-              }
-              secureTextEntry={passwordVisible}
-              onPressIcon={() => setPasswordVisible(!passwordVisible)}
-            />
-            <View style={styles.checkboxView}>
-              <View style={styles.rememberMeView}>
-                <AnimatedCheckbox
-                  checked={isChecked}
-                  onChange={saveCredHandler}
-                />
-                <Text style={[Fonts.rememberText, styles.ml10]}>
-                  Remember me
-                </Text>
-              </View>
-              <Pressable
-                onPress={() => navigation.navigate('ResetPasswordScreen')}>
-                <Text style={[Fonts.rememberText, styles.redText]}>
-                  Forgot Password?
-                </Text>
-              </Pressable>
-            </View>
-            <ButtonComponent
-              text="Sign in"
-              buttonPressed={loginHandler}
-              extraStyle={{
-                ...styles.mt30,
-                opacity: loginRes.status === ApiStatus.loading ? 0.5 : 1,
-              }}
-              isDisabled={loginRes.status === ApiStatus.loading}
-              loading={loginRes.status === ApiStatus.loading}
-            />
-          </ScrollView>
-        </KeyboardAvoidingView>
-      </View>
-      <Pressable
-        style={styles.bottomView}
-        onPress={() => navigation.navigate('SignUpScreen')}>
-        <Text style={Fonts.bottomText}>
-          Don't You have any account?{' '}
-          <Text style={styles.redText}>Sign up</Text>
-        </Text>
-      </Pressable>
-    </ImageBackground>
+    <Pressable onPress={() => navigation.navigate('ResetPasswordScreen')}>
+      <Text style={[Fonts.rememberText, styles.redText]}>Forgot Password?</Text>
+    </Pressable>
   );
 };
 
